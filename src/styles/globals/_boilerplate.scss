@@ -1,0 +1,8 @@
+@use "../util";
+html {
+  font-size: util.$fs;
+}
+body {
+  background-color: util.$black;
+  color: util.$white;
+}
