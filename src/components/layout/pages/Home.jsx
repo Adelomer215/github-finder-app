@@ -1,9 +1,9 @@
-import React from "react";
+import UserList from "../../users/UserList";
 
 const Home = () => {
   return (
     <div>
-      <h1>Home</h1>
+      <UserList />
     </div>
   );
 };
