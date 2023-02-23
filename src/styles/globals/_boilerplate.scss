@@ -2,7 +2,8 @@
 html {
   font-size: util.$fs;
 }
-body {
-  background-color: util.$black;
-  color: util.$white;
+
+.custom-card-image .card.image-full:before {
+  border-radius: 0.5rem;
+  opacity: 0.45;
 }
