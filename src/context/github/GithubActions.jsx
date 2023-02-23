@@ -1,4 +1,4 @@
-const VITE_REACT_APP_GITHUB_TOOKEN = "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";
+// const VITE_REACT_APP_GITHUB_TOOKEN = "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";
 const VITE_GITHUB_API_URL = "https://api.github.com";
 
 export const searchUsers = async (text) => {
@@ -6,18 +6,15 @@ export const searchUsers = async (text) => {
     q: text,
   });
 
-  const respons = await fetch(`${VITE_GITHUB_API_URL}/search/users?${params}`, {
-    headers: { Authorization: `token ${VITE_REACT_APP_GITHUB_TOOKEN}` },
-  });
+  const respons = await fetch(`${VITE_GITHUB_API_URL}/search/users?${params}`);
 
   const { items } = await respons.json();
+  console.log(items);
   return items;
 };
 
 export const getUser = async (login) => {
-  const respons = await fetch(`${VITE_GITHUB_API_URL}/users/${login}`, {
-    headers: { Authorization: `token ${VITE_REACT_APP_GITHUB_TOOKEN}` },
-  });
+  const respons = await fetch(`${VITE_GITHUB_API_URL}/users/${login}`);
 
   if (respons.status === 404) {
     window.location = "/notfound";
@@ -34,10 +31,7 @@ export const getUserRepos = async (login) => {
   });
 
   const respons = await fetch(
-    `${VITE_GITHUB_API_URL}/users/${login}/repos?${params}`,
-    {
-      headers: { Authorization: `token ${VITE_REACT_APP_GITHUB_TOOKEN}` },
-    }
+    `${VITE_GITHUB_API_URL}/users/${login}/repos?${params}`
   );
 
   const data = await respons.json();

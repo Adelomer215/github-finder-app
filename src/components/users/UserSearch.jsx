@@ -9,7 +9,6 @@ const UserSearch = () => {
 
   const { Users, dispatch } = useContext(GithubContext);
   const { setAlert } = useContext(AlertContext);
-
   const handleText = (e) => {
     setText(e.target.value);
   };
@@ -22,6 +21,7 @@ const UserSearch = () => {
     } else {
       dispatch({ type: SET_LOADING });
       const data = await searchUsers(Text);
+      console.log(data);
       dispatch({
         type: GET_USERS,
         payload: data,
